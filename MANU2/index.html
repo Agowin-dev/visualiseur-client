@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Manu ERP</title>
+    <meta name="description"
+        content="Caisse, boutique en ligne, livraisons, CRM, production, comptabilité SYSCOHADA, suivi du temps et recrutement : une seule suite, qui fonctionne même sans internet.">
+    <script>document.documentElement.classList.add("js")</script>
+    <link rel="stylesheet" href="style.css">
+    <link href="images/logo_icon_centered.png" rel="icon">
+</head>
+
+<dialog id="cf" aria-labelledby="cf-t">
+    <div class="cf-h">
+        <button type="button" class="cf-x" aria-label="Fermer">×</button>
+        <h3 id="cf-t">Demander une démonstration</h3>
+        <p>Dites-nous qui vous êtes, nous revenons vers vous.</p>
+    </div>
+    <form id="cform" class="cform">
+        <label>Nom complet *<input name="nom" required autocomplete="name"></label>
+        <label>Entreprise *<input name="entreprise" required autocomplete="organization"></label>
+        <label>Téléphone / WhatsApp *<input name="tel" type="tel" required autocomplete="tel"></label>
+        <label>E-mail<input name="email" type="email" autocomplete="email"></label>
+        <label class="full">Votre activité
+            <select name="secteur">
+                <option>Commerce de détail ou de gros</option>
+                <option>Dépôt ou distribution de boissons</option>
+                <option>Unité de production</option>
+                <option>Restaurant ou services</option>
+                <option>PME avec équipes à pointer et à payer</option>
+                <option>Cabinet comptable</option>
+                <option>Autre</option>
+            </select>
+        </label>
+        <fieldset class="full">
+            <legend>Outils qui vous intéressent</legend>
+            <div class="tools">
+                <label><input type="checkbox" name="outils" value="POS"><span>POS</span></label>
+                <label><input type="checkbox" name="outils" value="SHOP"><span>SHOP</span></label>
+                <label><input type="checkbox" name="outils" value="DLV"><span>DLV</span></label>
+                <label><input type="checkbox" name="outils" value="CRM"><span>CRM</span></label>
+                <label><input type="checkbox" name="outils" value="PROD"><span>PROD</span></label>
+                <label><input type="checkbox" name="outils" value="ACC"><span>ACC</span></label>
+                <label><input type="checkbox" name="outils" value="CHRONO"><span>CHRONO</span></label>
+                <label><input type="checkbox" name="outils" value="HIRE"><span>HIRE</span></label>
+            </div>
+        </fieldset>
+        <label class="full">Message<textarea name="message" rows="3"
+                placeholder="Nombre de boutiques, d’employés, besoins particuliers…"></textarea></label>
+        <div class="full cf-act">
+            <button type="submit" class="btn">Envoyer par e-mail</button>
+            <button type="button" class="btn out" id="cwa">Envoyer par WhatsApp</button>
+        </div>
+    </form>
+    <div id="cok" class="cok" hidden>
+        <h3>Merci, votre demande est prête.</h3>
+        <p>Si votre application e-mail ou WhatsApp ne s’est pas ouverte, écrivez-nous à contact@erpmanu.com ou utilisez
+            les boutons WhatsApp de la page.</p>
+        <button type="button" class="btn" onclick="document.getElementById('cf').close()">Fermer</button>
+    </div>
+</dialog>
+
+<body>
+    <header id="hd">
+        <div class="marq" aria-hidden="true">
+            <div>
+                <span>Point de vente</span><span>Boutique en ligne</span><span>Livraisons</span><span>Relation
+                    client</span><span>Production</span><span>Comptabilité</span><span>Suivi du
+                    temps</span><span>Recrutement</span><span>Identités et
+                    accès</span><span>Comptabilité</span><span>Production</span><span>Suivi du
+                    temps</span><span>Recrutement</span><span>Relation client</span><span>Boutique en
+                    ligne</span><span>Comptabilité</span><span>Livraisons</span>
+            </div>
+        </div>
+        <div class="w nav">
+            <a class="logo" href="#" aria-label="Manu, accueil">
+                <img src="images/logo_icon_centered.png" alt="Logo MANU" width="38" height="28"
+                    style="vertical-align: middle; margin-right: 8px;">
+                <span>MANU</span>
+            </a>
+            <nav aria-label="Navigation principale"><a href="#pourquoi">Pourquoi MANU</a><a href="#outils">Les
+                    outils</a><a href="#hors-ligne">Hors-ligne</a><a href="#formules">Formules</a><a
+                    href="#faq">Questions</a></nav>
+            <a class="btn" href="#contact" style="padding:10px 20px">Demander une démo</a>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+
+            <div class="w hero-g">
+                <div>
+                    <div class="pill in"><i class="dot"></i>Multi-Outils Complet de Gestion</div>
+                    <h1 class="in" style="animation-delay:.1s">Pilotez toute votre entreprise,
+                        <span>sur une seule plateforme,</span><br>Même sans internet.
+                    </h1>
+
+                </div>
+                <div class="hero-visual">
+                    <div class="glow"></div>
+                    <img class="hero-img" src="images/manu-dashboard.png"
+                        alt="Les outils de la suite Manu : POS, SHOP, DLV, CRM, PROD, ACC, IAM, HRM">
+                </div>
+            </div>
+        </section>
+
+        <div class="w">
+            <div class="stats">
+                <div class="stat rv"><b data-n="9"></b><span>outils livrés, Des mises à jour attendues</span></div>
+                <div class="stat rv"><b data-n="3"></b><span>modes réseau : connecté, hybride, autonome</span></div>
+                <div class="stat rv"><b data-n="17"></b><span>États de l’espace OHADA visés</span></div>
+                <div class="stat rv"><b data-n="8"></b><span>États de la zone UEMOA, en franc CFA</span></div>
+            </div>
+        </div>
+
+        <section id="pourquoi">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h1>
+                        Gérez votre activité en toute simplicité
+                    </h1>
+                    <p class="mute">MANU réunit les outils essentiels pour piloter votre entreprise : Ventes, Stocks,
+                        Comptabilité, Production, Relation
+                        client et gestion du personnel. Une solution modulaire pensée pour les réalités des entreprises
+                        d’Afrique de l’Ouest.</p>
+                </div>
+                <div class="grid g3">
+                    <div class="card rv">
+                        <div class="ic">+</div>
+                        <h3>Plus simple</h3>
+                        <p>Une action courante en deux gestes au plus
+                            : encaisser, pointer, livrer. Une interface pensée pour des utilisateurs experts de leur
+                            métier.</p>
+                    </div>
+                    <div class="card rv">
+                        <div class="ic">+</div>
+                        <h3>Assisté par l’IA</h3>
+                        <p>Un assistant intégré pour saisir en langage naturel (ex. : "2 h sur le chantier X hier"),
+                            résumer des périodes en texte clair et suggérer vos habitudes en un clic. L'IA prépare,
+                            l'humain valide.</p>
+                    </div>
+                    <div class="card rv">
+                        <div class="ic">+</div>
+                        <h3>Sans connexion</h3>
+                        <p>Une caisse ou un outil de terrain qui continue de fonctionner pendant les coupures de réseau.
+                            Vos données se synchronisent automatiquement dès le retour d'internet.</p>
+                    </div>
+                    <div class="card rv">
+                        <div class="ic">+</div>
+                        <h3>Adapté au terrain</h3>
+                        <p>Casiers consignés, vente à crédit, mobile money, mentions IFU et RCCM, petites imprimantes de
+                            ticket.</p>
+                    </div>
+                    <div class="card rv">
+                        <div class="ic">+</div>
+                        <h3>Personnalisable par modules</h3>
+                        <p>Un dépôt de boissons active les tournées, un producteur d’eau les relevés de forage. Même
+                            produit, métiers différents.</p>
+                    </div>
+                    <div class="card hl rv">
+                        <div class="ic">+</div>
+                        <h3>Pensé pour l’espace OHADA</h3>
+                        <p>Maîtrise du référentiel comptable SYSCOHADA révisé, du Code du travail,
+                            de la gestion des casiers consignés, des tournées de chauffeurs-vendeurs et du franc CFA
+                            sans centimes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="apercu" style="padding-top:0">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Un tableau de bord pensé pour le terrain</h2>
+                    <p class="mute">Les chiffres du jour d’abord, chacun avec son libellé. Tout le reste à deux gestes.
+                    </p>
+                </div>
+                <div class="dv">
+
+                    <div class="dv-col dv-l">
+                        <div class="dv-f rv"><span class="dv-ic"><svg viewBox="0 0 24 24">
+                                    <path d="M4 20V10M10 20V4M16 20v-7M22 20H2" />
+                                </svg></span>
+                            <div>
+                                <h3>Le tableau de bord du jour</h3>
+                                <p>Ventes, encaissements et stock bas s’affichent dès l’ouverture.</p>
+                            </div>
+                        </div>
+                        <div class="dv-f rv"><span class="dv-ic"><svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01" />
+                                    <path d="M3 3l18 18" />
+                                </svg></span>
+                            <div>
+                                <h3>Une caisse qui ne s’arrête jamais</h3>
+                                <p>Encaissez pendant une coupure : tout se synchronise au retour du réseau.</p>
+                            </div>
+                        </div>
+                        <div class="dv-f rv"><span class="dv-ic"><svg viewBox="0 0 24 24">
+                                    <path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8M12 13v8" />
+                                </svg></span>
+                            <div>
+                                <h3>Un seul stock</h3>
+                                <p>La caisse et la boutique en ligne vendent le même stock, sans survente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lap rv" aria-label="Aperçu animé du tableau de bord Manu (données fictives)">
+                        <div class="lap-s">
+                            <div class="lap-v">
+                                <div class="dv-app" id="dvApp" aria-hidden="true">
+                                    <div class="dv-top">
+                                        <svg width="30" height="22" viewBox="0 0 34 26">
+                                            <g stroke-linecap="round" stroke-width="5">
+                                                <path d="M5 22 13 4" stroke="#0001FC" />
+                                                <path d="M13 22 21 4" stroke="#0001FC" />
+                                                <path d="M21 22 29 4" stroke="#F2721A" />
+                                            </g>
+                                        </svg>
+                                        <b class="dv-lg">MANU</b><span class="dv-org">Boutique Démo ▾</span><span
+                                            class="dv-prem">Premium</span><span class="dv-sp"></span><i
+                                            class="dv-c"></i><i class="dv-c"></i><i class="dv-c"></i>
+                                    </div>
+                                    <div class="dv-body">
+                                        <div class="dv-side">
+                                            <div class="dv-n on"><i></i>Tableau de bord</div>
+                                            <div class="dv-n"><i></i>Produits</div>
+                                            <div class="dv-n"><i></i>Stock</div>
+                                            <div class="dv-n"><i></i>Commandes</div>
+                                            <div class="dv-n"><i></i>Dépenses</div>
+                                            <div class="dv-n"><i></i>Clients</div>
+                                            <div class="dv-n"><i></i>Paiements</div>
+                                            <div class="dv-n"><i></i>Paramètres</div>
+                                        </div>
+                                        <div class="dv-main">
+
+                                            <div class="dv-v on">
+                                                <div class="dv-h">Tableau de bord</div>
+                                                <div class="dv-sub">Aujourd’hui · Boutique Démo</div>
+                                                <div class="dv-k">
+                                                    <div><small>Ventes du jour</small><b data-v="46">46</b></div>
+                                                    <div><small>Chiffre d’affaires</small><b data-v="184500"
+                                                            data-s=" F CFA">184 500 F CFA</b></div>
+                                                    <div><small>Dépenses</small><b data-v="12000" data-s=" F CFA">12 000
+                                                            F CFA</b></div>
+                                                    <div><small>Stock bas</small><b data-v="3">3</b></div>
+                                                </div>
+                                                <div class="dv-g">
+                                                    <div class="dv-card"><small>Ventes par heure</small>
+                                                        <svg viewBox="0 0 300 110">
+                                                            <defs>
+                                                                <linearGradient id="dvg" x1="0" y1="0" x2="0" y2="1">
+                                                                    <stop offset="0" stop-color="#2F3BFF"
+                                                                        stop-opacity=".3" />
+                                                                    <stop offset="1" stop-color="#2F3BFF"
+                                                                        stop-opacity="0" />
+                                                                </linearGradient>
+                                                            </defs>
+                                                            <path d="M0 25H300M0 55H300M0 85H300" stroke="#E3E6EC" />
+                                                            <path class="dv-ar"
+                                                                d="M8 90L55 74L100 60L145 68L190 38L235 46L292 16V105H8Z"
+                                                                fill="url(#dvg)" />
+                                                            <path class="dv-ln" pathLength="1"
+                                                                d="M8 90L55 74L100 60L145 68L190 38L235 46L292 16" />
+                                                            <circle class="dv-pt" cx="292" cy="16" r="4.5" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="dv-card"><small>Ventes par catégorie</small>
+                                                        <div class="dv-br"><span>Catégorie 1</span><i
+                                                                style="--w:86%"></i></div>
+                                                        <div class="dv-br"><span>Catégorie 2</span><i
+                                                                style="--w:62%"></i></div>
+                                                        <div class="dv-br"><span>Catégorie 3</span><i
+                                                                style="--w:41%"></i></div>
+                                                        <div class="dv-br"><span>Emballages</span><i
+                                                                style="--w:27%"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dv-v">
+                                                <div class="dv-ph">
+                                                    <div>
+                                                        <div class="dv-h">Produits</div>
+                                                        <div class="dv-sub">8 produit(s)</div>
+                                                    </div>
+                                                    <div><span class="dv-o">Shooting IA</span> <span class="dv-o">+
+                                                            Ajouter</span></div>
+                                                </div>
+                                                <div class="dv-tb"><span class="on">Produits
+                                                        <em>8</em></span><span>Fournisseurs</span><span>Catégories</span><span>Emballages</span>
+                                                </div>
+                                                <div class="dv-pg">
+                                                    <div class="pc">
+                                                        <div class="pi a"><u></u></div><b>PRODUIT DÉMO
+                                                            A</b><small>CATÉGORIE 1</small><span>12 500 F CFA</span>
+                                                    </div>
+                                                    <div class="pc">
+                                                        <div class="pi b"><u></u></div><b>PRODUIT DÉMO
+                                                            B</b><small>CATÉGORIE 2</small><span>9 800 F CFA</span>
+                                                    </div>
+                                                    <div class="pc">
+                                                        <div class="pi c"><u></u></div><b>PRODUIT DÉMO
+                                                            C</b><small>CATÉGORIE 1</small><span>5 000 F CFA</span>
+                                                    </div>
+                                                    <div class="pc">
+                                                        <div class="pi d"><u></u></div><b>EMBALLAGE
+                                                            DÉMO</b><small>EMBALLAGE</small><span>20 000 F CFA</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <svg class="dv-cur" id="dvCur" width="22" height="22" viewBox="0 0 24 24">
+                                        <path d="M5 3l14 8-6 2 4 7-3 1-4-7-5 4z" fill="#0F1220" stroke="#fff"
+                                            stroke-width="1.5" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lap-b"></div>
+                    </div>
+
+                    <div class="dv-col dv-r">
+                        <div class="dv-f rv"><span class="dv-ic"><svg viewBox="0 0 24 24">
+                                    <circle cx="9" cy="8" r="3.2" />
+                                    <path
+                                        d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M17 11a3 3 0 1 0 0-6M21 20c0-2.6-1.6-4.8-4-5.6" />
+                                </svg></span>
+                            <div>
+                                <h3>Des rôles par outil et par site</h3>
+                                <p>Le caissier ne voit pas les écrans du gérant. Chaque action sensible est tracée.</p>
+                            </div>
+                        </div>
+                        <div class="dv-f rv"><span class="dv-ic"><svg viewBox="0 0 24 24">
+                                    <path d="M6 9V3h12v6M6 18H4v-8h16v8h-2M6 14h12v7H6z" />
+                                </svg></span>
+                            <div>
+                                <h3>Rapports et tickets imprimables</h3>
+                                <p>Une quinzaine de rapports, et des tickets sur imprimante Bluetooth ou USB.</p>
+                            </div>
+                        </div>
+                        <div class="dv-f rv"><span class="dv-ic"><svg viewBox="0 0 24 24">
+                                    <rect x="2" y="4" width="14" height="10" rx="1.5" />
+                                    <path d="M0 18h18" />
+                                    <rect x="17" y="8" width="5" height="10" rx="1.2" />
+                                </svg></span>
+                            <div>
+                                <h3>Navigateur et Android</h3>
+                                <p>La même application sur ordinateur, tablette et téléphone, sans rien installer.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="blue" id="outils">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Neuf outils indépendants,Une seule suite</h2>
+                    <p class="mute">Chaque outil fonctionne seul. Commencez par la caisse, ajoutez le reste quand vous
+                        en avez besoin.</p>
+                </div>
+                <div class="tabs rv">
+                    <div class="tl" role="tablist" aria-label="Outils Manu" id="tl"></div>
+                    <div class="panel" id="panel" role="tabpanel"></div>
+                </div>
+                <div class="soon rv"><b>En conception
+                        :</b><span>PAIE</span><span>SIGN</span><span>SOCIAL</span><span>HRM</span><em
+                        style="font-style:normal">conçus, pas encore disponibles</em></div>
+            </div>
+        </section>
+
+        <section id="hors-ligne">
+            <div class="w demo">
+                <div class="rv"><span class="kick"></span>
+                    <h2>Votre caisse continue même sans connection internet</h2>
+                    <p class="mute" style="margin-top:14px;font-size:1.08rem">Chaque site choisit son mode : connecté,
+                        hybride ou autonome. En hybride, l’appareil garde une copie et une file d’attente, et tout se
+                        synchronise au retour du réseau. En autonome, un poste fonctionne indéfiniment sans internet.
+                    </p>
+                    <p class="mute note">Hors-ligne possible : POS, CRM, PROD et CHRONO (kiosque compris). SHOP, ACC et
+                        HIRE demandent une connexion.</p>
+                </div>
+                <div class="pos rv" id="pos">
+                    <div class="top"><span class="state" id="st">En ligne</span><button class="sw" id="sw"
+                            aria-pressed="true"><i></i><span id="swt">Réseau actif</span></button></div>
+                    <div class="row"><span>Boutique Démo · Caisse 1</span><b id="tot">0 F CFA</b></div>
+                    <div class="row"><span>Ventes aujourd’hui</span><b id="cnt">0</b></div>
+                    <div class="q"><span id="qt">Rien en attente</span><b id="qn">0</b></div>
+                    <button class="btn" id="sell">Encaisser 2 500 F CFA</button>
+                    <p class="mute" style="font-size:.85rem;margin-top:12px;text-align:center">Essayez : coupez le
+                        réseau, puis encaissez.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blue" id="connexions" style="padding:80px 0">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Des outils qui se parlent, quand vous le décidez</h2>
+                    <p class="mute">
+                        Vous gérez les connexions depuis IAM(Identités et accès).</p>
+                </div>
+                <div class="grid g2">
+                    <div class="card rv"
+                        style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff">
+                        <h3>Stock partagé</h3>
+                        <p style="color:#D4D8FF">La caisse et la boutique en ligne vendent le même stock : une vente
+                            d’un côté se voit de l’autre.</p>
+                    </div>
+                    <div class="card rv"
+                        style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff">
+                        <h3>Un client, une fiche</h3>
+                        <p style="color:#D4D8FF">Les clients de toutes vos boutiques remontent dans un CRM unique.</p>
+                    </div>
+                    <div class="card rv"
+                        style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff">
+                        <h3>L’usine alimente la vente</h3>
+                        <p style="color:#D4D8FF">Un ordre de fabrication clôturé fait entrer les produits finis dans le
+                            stock des points de vente liés.</p>
+                    </div>
+                    <div class="card rv"
+                        style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff">
+                        <h3>Comptabilité automatique</h3>
+                        <p style="color:#D4D8FF">Ventes, encaissements, dépenses et achats s’inscrivent en écritures
+                            dans votre dossier de la Comptabilité.</p>
+                    </div>
+                </div>
+                <div class="flow rv" aria-label="Chaîne visée"><span>Planning
+                        CHRONO</span><em>→</em><span>Pointage</span><em>→</em><span>Heures
+                        qualifiées</span><em>→</em><span>PAIE</span><em>→</em><span>ACC</span><em>→</em><span>SIGN</span>
+                </div>
+                <p class="mute note">Chaîne visée à terme : PAIE et SIGN sont attendues en Mise à Jour.</p>
+            </div>
+        </section>
+
+        <section id="metiers">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Vous activez ce qui vous sert, rien de plus</h2>
+                    <p class="mute">Chaque outil a un socle toujours inclus. Les modules s’y greffent selon votre
+                        activité.</p>
+                </div>
+                <div class="grid g2">
+                    <div class="card rv">
+                        <h3>Dépôt de boissons</h3>
+                        <p>POS et ACC : emballages clients, tournées chauffeur, clôture groupée, rémunération des
+                            chauffeurs, vente à crédit.</p>
+                    </div>
+                    <div class="card rv">
+                        <h3>Producteur d’eau en sachet</h3>
+                        <p>PROD, POS et CHRONO : relevés de forage, consommation d’emballage, rapport journalier
+                            d’usine.</p>
+                    </div>
+                    <div class="card rv">
+                        <h3>Commerce avec boutique en ligne</h3>
+                        <p>POS, SHOP et CRM : catalogue et stock partagés, fiche client unifiée.</p>
+                    </div>
+                    <div class="card rv">
+                        <h3>Entreprise de services ou de chantier</h3>
+                        <p>CHRONO, HIRE et ACC : géorepérage, barème du Code du travail, journaliers, facturation des
+                            heures.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding-top:0">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>L’IA prépare, vous validez</h2>
+                </div>
+                <div class="grid g3">
+                    <div class="card rv">
+                        <h3>Shooting Studio</h3>
+                        <p>POS et SHOP: Une photo prise au téléphone devient un visuel propre, fond studio ou décor
+                            réaliste.</p>
+                    </div>
+                    <div class="card rv">
+                        <h3>Assistant de recrutement</h3>
+                        <p>HIRE: Rédige une offre, présélectionne et résume une candidature, suggère des profils du
+                            vivier.</p>
+                    </div>
+                    <div class="card rv">
+                        <h3>Assistant de saisie du temps</h3>
+                        <p>CHRONO: Comprend une phrase, suggère les imputations du jour, résume une période. Le service
+                            d’IA est configuré par l’entreprise.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="notions" style="padding-top:0">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Manu en quatre notions</h2>
+                    <p class="mute">Quatre mots suffisent pour comprendre toute la plateforme, de votre entreprise
+                        jusqu’à la dernière fonction activée.</p>
+                </div>
+                <div class="steps rv">
+                    <div data-n="1">
+                        <h3>Organisation</h3>
+                        <p>C’est vous : votre entreprise, avec son adresse nom.erpmanu.com et son administrateur.</p>
+                    </div>
+                    <div data-n="2">
+                        <h3>Outils</h3>
+                        <p>Les logiciels que vous utilisez : caisse (POS), production (PROD), comptabilité (ACC)…</p>
+                    </div>
+                    <div data-n="3">
+                        <h3>Services</h3>
+                        <p>Vos sites dans chaque outil : une boutique, une usine, un dossier comptable.</p>
+                    </div>
+                    <div data-n="4">
+                        <h3>Modules</h3>
+                        <p>Les fonctions que vous activez sur chaque Service, selon votre activité.</p>
+                    </div>
+                </div>
+                <p class="mute note" style="text-align:center;max-width:720px;margin-inline:auto">Exemple : une
+                    Organisation peut avoir trois Services POS (trois boutiques), un Service PROD (son usine) et un
+                    Service ACC (son dossier comptable).</p>
+            </div>
+        </section>
+  
+
+        <section id="formules" style="padding-top:0">
+            <div class="w">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Trois formules mensuelles</h2>
+                    <p class="mute">Commencez gratuitement, passez à la suite selon vos besoins.</p>
+                </div>
+                <div class="grid g3 price">
+                    <div class="card rv">
+                        <h3>Standard</h3>
+                        <div class="big">Gratuit</div>
+                        <p class="mute">Sans limite de durée, dans la limite des quotas.</p>
+                        <ul>
+                            <li>3 utilisateurs</li>
+                            <li>100 produits</li>
+                            <li>200 ventes par mois</li>
+                            <li>POS, SHOP et CHRONO</li>
+                        </ul>
+                    </div>
+                    <div class="card feat rv">
+                        <h3>Business</h3>
+                        <div class="big">15 000 F CFA<span class="mute" style="font-size:1rem;font-weight:500">
+                                /mois</span></div>
+                        <p class="mute">Pour les entreprises qui s’organisent.</p>
+                        <ul>
+                            <li>10 utilisateurs</li>
+                            <li>1 000 produits</li>
+                            <li>2 000 ventes par mois</li>
+                            <li>Les 8 outils commerciaux</li>
+                            <li>Une sélection de modules premium</li>
+                        </ul>
+                    </div>
+                    <div class="card rv">
+                        <h3>Premium</h3>
+                        <div class="big">35 000 F CFA<span class="mute" style="font-size:1rem;font-weight:500">
+                                /mois</span></div>
+                        <p class="mute">Pour les structures multi-sites.</p>
+                        <ul>
+                            <li>Utilisateurs illimités</li>
+                            <li>Produits et ventes illimités</li>
+                            <li>Les 8 outils commerciaux</li>
+                            <li>Tous les modules premium</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="mute note">IAM est inclus dans toutes les formules. Des offres sur mesure existent. Après un
+                    premier contact, l’équipe Manu crée votre Organisation et vous remet une clé d’activation,
+                    vérifiable même sans internet. Valeurs actuelles, susceptibles d’évoluer.</p>
+            </div>
+        </section>
+
+        <section class="lgs" aria-roledescription="carrousel" aria-label="Les outils de la suite Manu">
+            <div class="w">
+                <p class="lgs-t">Ils nous ont fait confiance</p>
+                <div class="lgs-v">
+                    <div class="lgs-tr">
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                        <div class="lgs-i"><img src="images/logo_icon_centered.png" alt="Nom du partenaire"
+                                loading="lazy"></div>
+                    </div>
+                </div>
+                <div class="lgs-dots" role="group" aria-label="Choisir un groupe"></div>
+            </div>
+        </section>
+        <section id="faq" style="padding-top:0">
+            <div class="w" style="max-width:820px">
+                <div class="head rv"><span class="kick"></span>
+                    <h2>Questions fréquentes</h2>
+                </div>
+                <details class="rv">
+                    <summary>Peut-on acheter Manu directement sur le site ?</summary>
+                    <p>Non. L’activation se fait par une clé remise par l’équipe Manu après un premier contact. Demandez
+                        une démonstration et nous créons votre Organisation.</p>
+                </details>
+                <details class="rv">
+                    <summary>Que se passe-t-il si mon abonnement arrive à échéance ?</summary>
+                    <p>Un rappel s’affiche, puis un délai de grâce permet de continuer à travailler. Au-delà, la saisie
+                        est suspendue jusqu’à la nouvelle clé. Aucune donnée n’est perdue.</p>
+                </details>
+                <details class="rv">
+                    <summary>Puis-je payer par mobile money dans la caisse ?</summary>
+                    <p>La caisse enregistre un paiement par mobile money (Wave, Orange, MTN), mais n’est pas encore
+                        reliée directement aux opérateurs.</p>
+                </details>
+                <details class="rv">
+                    <summary>Sur quels appareils fonctionne Manu ?</summary>
+                    <p>Dans un navigateur sur ordinateur, tablette ou téléphone, et sur Android avec impression
+                        Bluetooth sur imprimante de ticket. Une application de poste de caisse pour Windows, macOS et
+                        Linux est développée, sa distribution reste à confirmer.</p>
+                </details>
+                <details class="rv">
+                    <summary>Mon cabinet comptable peut-il accéder à mes livres ?</summary>
+                    <p>Oui, avec le module d’accès cabinet comptable de ACC : il est invité par lien et dispose d’un
+                        dossier de révision.</p>
+                </details>
+                <details class="rv">
+                    <summary>Manu est-il disponible hors du Burkina Faso ?</summary>
+                    <p>Le Burkina Faso est le premier terrain, mais Manu est construit pour l’ensemble de l’espace OHADA
+                        et de la zone UEMOA. Ce qui varie d’un pays à l’autre est paramétrable.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="final" id="contact">
+            <div class="w">
+                <div class="head rv">
+                    <h2>Rejoingnez +1200 utilisateurs qui pilotent leur entreprise avec MANU</h2>
+                    <p class="mute">Parlez-nous de vos boutiques, de votre dépôt, de votre usine ou de vos équipes. Nous
+                        vous montrons les outils qui vous concernent.</p>
+                </div>
+                <div class="cta rv">
+                    <button type="button" class="btn open-contact">Demander une démonstration</button>
+                    <a class="btn ghost wa"
+                        href="https://wa.me/33768249323?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9monstration%20de%20Manu."
+                        target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.7-5.2A8.5 8.5 0 1 1 21 12z" />
+                        </svg>
+                        WhatsApp · +33 7 68 24 93 23
+                    </a>
+                    <a class="btn ghost wa"
+                        href="https://wa.me/22666693644?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9monstration%20de%20Manu."
+                        target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.7-5.2A8.5 8.5 0 1 1 21 12z" />
+                        </svg>
+                        WhatsApp · +226 66 69 36 44
+                    </a>
+                </div>
+                <p class="mute" style="margin-top:20px">contact@erpmanu.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="w"><a class="logo" href="#top" style="font-size:1rem">
+                <img src="images/logo_icon_centered.png" alt="Logo MANU" width="38" height="28"
+                    style="vertical-align: middle; margin-right: 8px;">
+                <span>MANU</span>
+            </a>
+            <span>Multi-Outils Complet de Gestion · erpmanu.com</span><span>© 2026 Manu</span>
+        </div>
+    </footer>
+    <Script src="script.js"></Script>
+</body>
+
+</html>

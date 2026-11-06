@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manu – Choisissez un outil (démo fond mosaïque)</title>
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Mosaïques décoratives ───────────────────────────────── */
+
+.bg {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  /* Ajuster opacity ici pour plus ou moins de discrétion */
+}
+
+/* Grand losange – coin supérieur droit */
+.bg-tr {
+  top: -50px;
+  right: -70px;
+  width: 500px;
+  opacity: 0.07;
+  transform: rotate(10deg);
+}
+
+/* Parallélogramme – coin inférieur gauche */
+.bg-bl {
+  bottom: -40px;
+  left: -90px;
+  width: 540px;
+  opacity: 0.06;
+  transform: rotate(-8deg);
+}
+
+/* 2-3-2 – bas droite, légèrement centré */
+.bg-br {
+  bottom: -30px;
+  right: 100px;
+  width: 460px;
+  opacity: 0.065;
+  transform: rotate(5deg);
+}
+
+/* ── Contenu page ──────────────────────────────────────────── */
+
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 52px 32px 80px;
+}
+
+/* En-tête */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 11px;
+}
+
+.logo-text {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #1d3a6e;
+}
+
+.page-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Sections */
+.content {
+  width: 100%;
+  max-width: 680px;
+}
+
+.section { margin-bottom: 38px; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #94a3b8;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.cards { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Carte */
+.card {
+  width: 218px;
+  height: 162px;
+  border-radius: 16px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.11);
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.17);
+}
+
+/* Icône fantôme en fond de carte */
+.ghost {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  opacity: 0.14;
+  width: 76px;
+  height: 76px;
+}
+
+/* Badge module (coin haut gauche) */
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 8px;
+  padding: 5px 10px 5px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.badge-bars {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.b { width: 4px; border-radius: 2px; }
+
+.badge-name {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.card-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.80);
+}
+
+/* ── Slider opacité (outil de démo) ─────────────────────── */
+.demo-ctrl {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #64748b;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+.demo-ctrl label { font-weight: 600; color: #334155; }
+.demo-ctrl input[type=range] { width: 100%; cursor: pointer; }
+.demo-val { text-align: right; font-weight: 700; color: #2563EB; }
+
+</style>
+</head>
+<body>
+
+<!-- ── Mosaïques arrière-plan ───────────────────────────── -->
+<img id="bgTR" class="bg bg-tr" src="mosaic_losange.svg" alt="">
+<img id="bgBL" class="bg bg-bl" src="mosaic_parallelogramme.svg" alt="">
+<img id="bgBR" class="bg bg-br" src="mosaic_2-3-2.svg" alt="">
+
+
+<!-- ── Page ────────────────────────────────────────────── -->
+<div class="page">
+
+  <!-- En-tête -->
+  <div class="header">
+    <div class="logo">
+      <!-- Logo Manu : 3 barres pills diagonales -->
+      <svg width="44" height="30" viewBox="0 0 44 30" fill="none">
+        <rect x="2"  y="4"  width="9" height="22" rx="4.5" fill="#2563EB" transform="rotate(-14  6 15)"/>
+        <rect x="15" y="1"  width="9" height="26" rx="4.5" fill="#2563EB" transform="rotate(-14 19 14)"/>
+        <rect x="29" y="7"  width="9" height="17" rx="4.5" fill="#FF8C40" transform="rotate(-14 33 15)"/>
+      </svg>
+      <span class="logo-text">MANU</span>
+    </div>
+    <div class="page-title">Choisissez un outil</div>
+  </div>
+
+  <!-- Sections -->
+  <div class="content">
+
+    <!-- ADMINISTRATION -->
+    <div class="section">
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Administration
+      </div>
+      <div class="cards">
+        <div class="card" style="background:#2563EB;">
+          <div class="badge">
+            <div class="badge-bars">
+              <div class="b" style="height:13px;background:#2563EB;"></div>
+              <div class="b" style="height:15px;background:#2563EB;"></div>
+              <div class="b" style="height:10px;background:#FF8C40;"></div>
+            </div>
+            <span class="badge-name" style="color:#2563EB;">IAM</span>
+          </div>
+          <svg class="ghost" viewBox="0 0 24 24" fill="white">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <div class="card-title">IAM</div>
+          <div class="card-sub">Identités et accès</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VENTE -->
+    <div class="section">
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        Vente
+      </div>
+      <div class="cards">
+        <div class="card" style="background:#F97316;">
+          <div class="badge">
+            <div class="badge-bars">
+              <div class="b" style="height:13px;background:#2563EB;"></div>
+              <div class="b" style="height:15px;background:#2563EB;"></div>
+              <div class="b" style="height:10px;background:white;"></div>
+            </div>
+            <span class="badge-name" style="color:#F97316;">SHOP</span>
+          </div>
+          <svg class="ghost" viewBox="0 0 24 24" fill="white">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/>
+          </svg>
+          <div class="card-title">SHOP</div>
+          <div class="card-sub">Boutique en ligne</div>
+        </div>
+
+        <div class="card" style="background:#10B981;">
+          <div class="badge">
+            <div class="badge-bars">
+              <div class="b" style="height:13px;background:#2563EB;"></div>
+              <div class="b" style="height:15px;background:#2563EB;"></div>
+              <div class="b" style="height:10px;background:#FF8C40;"></div>
+            </div>
+            <span class="badge-name" style="color:#10B981;">POS</span>
+          </div>
+          <svg class="ghost" viewBox="0 0 24 24" fill="white">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          <div class="card-title">POS</div>
+          <div class="card-sub">Point de vente physique</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLIENT -->
+    <div class="section">
+      <div class="section-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+          <path d="M16 3.13a4 4 0 010 7.75"/>
+        </svg>
+        Client
+      </div>
+      <div class="cards">
+        <div class="card" style="background:#3B82F6;">
+          <div class="badge">
+            <div class="badge-bars">
+              <div class="b" style="height:13px;background:#2563EB;"></div>
+              <div class="b" style="height:15px;background:#2563EB;"></div>
+              <div class="b" style="height:10px;background:#FF8C40;"></div>
+            </div>
+            <span class="badge-name" style="color:#3B82F6;">CRM</span>
+          </div>
+          <svg class="ghost" viewBox="0 0 24 24" fill="white">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+          <div class="card-title">CRM</div>
+          <div class="card-sub">Gestion de la relation client</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /page -->
+
+
+<!-- ── Contrôle d'opacité (pour tester en direct) ────────── -->
+<div class="demo-ctrl">
+  <label>Opacité mosaïques</label>
+  <input type="range" id="opSlider" min="0" max="20" value="7" step="1">
+  <div class="demo-val"><span id="opVal">7</span> %</div>
+</div>
+
+<script>
+  const slider = document.getElementById('opSlider');
+  const label  = document.getElementById('opVal');
+  const bgTR   = document.getElementById('bgTR');
+  const bgBL   = document.getElementById('bgBL');
+  const bgBR   = document.getElementById('bgBR');
+
+  slider.addEventListener('input', () => {
+    const v = slider.value / 100;
+    bgTR.style.opacity = v;
+    bgBL.style.opacity = v * 0.87;
+    bgBR.style.opacity = v * 0.93;
+    label.textContent = slider.value;
+  });
+</script>
+
+</body>
+</html>
